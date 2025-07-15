@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Aplica la nueva fuente al cuerpo y al formulario */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.borrador-form label,
+.borrador-form input,
+.borrador-form select,
+.borrador-form textarea {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Efecto al seleccionar un campo */
+.borrador-form input:focus,
+.borrador-form textarea:focus,
+.borrador-form select:focus {
+    outline: none;
+    /* Mantenemos el borde azul pero lo hacemos más sutil */
+    border-color: #367789; 
+    /* La sombra la hacemos más suave y difusa */
+    box-shadow: 0 0 0 3px rgba(54, 119, 137, 0.15);
+}
+
+
+/* ============================================= */
+/* ESTILOS PARA DASHBOARDS              */
+/* Y FORMULARIOS INTERNOS               */
+/* ============================================= */
+
+/* Contenedor principal del dashboard */
+.dashboard-container {
+    max-width: 800px;
+    margin: 40px auto; /* Centrado y con espacio arriba/abajo */
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e0e0;
+  }
+  
+  .dashboard-container h2 {
+    text-align: center;
+    color: var(--color-primario); /* Usa el azul institucional */
+    margin-bottom: 30px;
+    font-size: 2rem;
+  }
+  
+  /* Estilos para el formulario de borrador */
+  .borrador-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre cada campo del formulario */
+  }
+  
+  .borrador-form label {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: -10px; /* Acerca la etiqueta a su campo */
+  }
+  
+  /* Estilo unificado para inputs, textareas y selects */
+  .borrador-form input[type="text"],
+  .borrador-form input[type="url"],
+  .borrador-form textarea,
+  .borrador-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Segoe UI', sans-serif;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Efecto al seleccionar un campo */
+  .borrador-form input:focus,
+  .borrador-form textarea:focus,
+  .borrador-form select:focus {
+    outline: none;
+    border-color: var(--color-primario); /* Borde azul al enfocar */
+    box-shadow: 0 0 8px rgba(54, 119, 137, 0.2);
+  }
+  
+  /* Estilo para el input de archivo */
+  .borrador-form input[type="file"] {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .borrador-form input[type="file"]::file-selector-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--color-neutro); /* Gris suave */
+    color: var(--color-texto-oscuro);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .borrador-form input[type="file"]::file-selector-button:hover {
+    background-color: #90a4ae;
+  }
+  
+  /* Botón de Guardar */
+  .btn-guardar {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-primario); /* Azul institucional */
+    color: var(--color-texto-claro);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 15px; /* Espacio extra arriba */
+  }
+  
+  .btn-guardar:hover {
+    background-color: #2a5a69; /* Un azul más oscuro */
+    transform: translateY(-2px);
+  }
+
+.btn-enviar {
+    /* Estilos base similares a btn-guardar */
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    color: var(--color-texto-claro);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+
+    /* Diferencia clave: un color de fondo más llamativo */
+    background-color: #2a5a69; /* Un azul más oscuro */
+}
+
+.btn-enviar:hover {
+    background-color: #ff0000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* ============================================= */
+/* ESTILOS PARA INPUTS DINÁMICOS DE ENLACES      */
+/* ============================================= */
+
+#multimedia-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espacio entre cada enlace */
+}
+
+/* Contenedor para cada fila de input + botón */
+.link-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espacio entre el input y el botón */
+}
+
+/* Hace que el input ocupe todo el espacio disponible */
+.link-input-row input {
+  flex-grow: 1;
+  margin-bottom: 0; /* Anula márgenes previos si los hubiera */
+}
+
+/* Estilo unificado para los botones de añadir y quitar */
+/* Estilo unificado para los botones de añadir y quitar */
+.btn-link-action {
+  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  /* Ajustamos el tamaño de fuente para el ícono */
+  font-size: 1.1rem; 
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* Ya no se necesita el padding-bottom ni line-height */
+}
+
+.btn-link-action i {
+    font-size: 1.5rem; /* Tamaño del ícono */
+}
+
+.btn-link-action:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón de Añadir (+) */
+.btn-add-link {
+  background-color: #367789; /* Azul institucional */
+  margin-top: -10px; /* Sube un poco el botón principal */
+  width: 50px;
+}
+
+/* Botón de Quitar (-) */
+.btn-remove-link {
+  background-color: #e63946; /* Un color rojo para eliminar */
+  font-size: 2.2rem; /* El guión es más pequeño, ajustamos tamaño */
+}
+
+/* Estilos para el bloque de información del proceso */
+.info-proceso {
+    background-color: #f7f9fc; /* Un fondo muy suave */
+    padding: 25px;
+    margin-bottom: 35px; /* Espacio antes del formulario */
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    border-left: 5px solid #367789; /* Acento con el color primario */
+}
+
+.info-proceso h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+
+.info-proceso p {
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Estilos para la lista ordenada (los pasos) */
+.info-proceso ol {
+    list-style: none; /* Quitamos los números por defecto */
+    counter-reset: steps-counter; /* Iniciamos un contador CSS */
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+.info-proceso li {
+    counter-increment: steps-counter; /* Cada item incrementa el contador */
+    position: relative;
+    padding-left: 50px; /* Espacio para el círculo numérico */
+    margin-bottom: 20px; /* Espacio entre cada paso */
+    line-height: 1.6;
+}
+
+/* Creamos el círculo numérico personalizado */
+.info-proceso li::before {
+    content: counter(steps-counter); /* Muestra el número del contador */
+    position: absolute;
+    left: 0;
+    top: -2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: #367789; /* Color primario */
+    color: #ffffff;
+    border-radius: 50%; /* Lo hacemos un círculo */
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Estilo para el texto resaltado en negrita */
+.info-proceso strong {
+    color: #2a5a69; /* Un tono más oscuro del primario */
+}
+
+/* Estilo para los contenedores de campos extra */
+.campos-extra {
+  display: none; /* Ocultos por defecto */
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Cuando se muestren, tendrán la animación */
+.campos-extra[style*="block"] {
+    display: flex;
+}

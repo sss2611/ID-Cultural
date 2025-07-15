@@ -1,0 +1,33 @@
+/* Estilo general del cuerpo de la página */
+body {
+        height: 100%;
+    font-family: Arial, sans-serif; /* Fuente legible y común */
+    background-color: #f2f2f2; /* Color de fondo gris claro */
+    text-align: center; /* Centra el texto dentro del body */
+        display: flex;
+    flex-direction: column;
+}
+
+/* Contenedor principal del mensaje */
+.container {
+    background-color: white; /* Fondo blanco para contraste */
+    padding: 100px; /* Espaciado interno del contenedor */
+    margin: auto; /* Centra el div horizontalmente */
+    max-width: 500px; /* Ancho máximo para que no se estire demasiado */
+    border-radius: 10px; /* Bordes redondeados para un diseño moderno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra sutil alrededor del contenedor */
+        flex: 1; /* Hace que el contenedor ocupe el espacio disponible y empuje el footer hacia abajo */
+
+}
+
+/* Título principal */
+h1 {
+    color: #D50032; /* Verde vibrante que indica éxito */
+}
+
+/* Párrafos con el mensaje */
+p {
+    font-size: 18px; /* Tamaño de fuente cómodo para lectura */
+    margin-top: 20px; /* Espaciado superior para separar de otros elementos */
+}
+

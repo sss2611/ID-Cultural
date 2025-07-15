@@ -1,0 +1,127 @@
+/* Fondo general */
+body {
+  background-color: #f2f2f2;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header superior */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0075c4;
+  color: white;
+  padding: 10px 20px;
+}
+
+.logo img {
+  height: 40px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li a {
+  background-color: #D50032;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+nav ul li a:hover {
+  background-color: #b00028;
+}
+
+/* Área principal */
+main {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+main h1 {
+  color: #D50032;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+/* Botonera */
+.panel-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columnas fijas */
+  gap: 20px;
+  justify-items: center;
+  margin-top: 30px;
+}
+
+/* Botones del panel */
+.panel-button {
+  background-color: #0075c4;
+  color: white;
+  padding: 20px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  width: 100%;
+  max-width: 160px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.panel-button:hover {
+  background-color: #005999;
+}
+
+/* Íconos con animación */
+.panel-button img {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 8px;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto al pasar el mouse por el botón */
+.panel-button:hover img {
+  animation: bounce 0.4s ease;
+}
+
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* Responsive: de a 1 o 2 columnas en pantallas pequeñas */
+@media (max-width: 768px) {
+  .panel-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .panel-button {
+    font-size: 0.9rem;
+    padding: 16px 10px;
+  }
+
+  .panel-button img {
+    width: 30px;
+    height: 30px;
+  }
+}
