@@ -1,0 +1,28 @@
+// Obtener todo el personal
+fetch('api/personal.php?action=get')
+
+// Obtener usuario específico
+fetch('api/personal.php?action=get&id=1')
+
+// Agregar personal
+const formData = new FormData();
+formData.append('action', 'add');
+formData.append('nombre', 'Juan Pérez');
+formData.append('email', 'juan@ejemplo.com');
+formData.append('rol', 'editor');
+formData.append('password', 'miContraseñaSegura');
+fetch('api/personal.php', { method: 'POST', body: formData })
+
+// Actualizar personal
+formData.append('action', 'update');
+formData.append('id', '1');
+formData.append('nombre', 'Juan Pérez Actualizado');
+formData.append('email', 'juan.nuevo@ejemplo.com');
+formData.append('role', 'admin');
+// formData.append('password', 'nuevaContraseña'); // Opcional
+fetch('api/personal.php', { method: 'POST', body: formData })
+
+// Eliminar personal
+formData.append('action', 'delete');
+formData.append('id', '1');
+fetch('api/personal.php', { method: 'POST', body: formData })

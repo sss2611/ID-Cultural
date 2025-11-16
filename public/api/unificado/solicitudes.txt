@@ -1,0 +1,23 @@
+// Artista: Obtener mis solicitudes
+fetch('api/solicitudes.php?action=get_my')
+
+// Artista: Obtener solicitud específica
+fetch('api/solicitudes.php?action=get_my&id=1')
+
+// Validador: Obtener todas las solicitudes pendientes
+fetch('api/solicitudes.php?action=get_all')
+
+// Validador: Obtener solicitudes con estado específico
+fetch('api/solicitudes.php?action=get_all&estado=validado')
+fetch('api/solicitudes.php?action=get_all&estado=all') // Todas excepto borradores
+
+// Validador: Obtener solicitud específica con detalles completos
+fetch('api/solicitudes.php?action=get_all&id=1')
+
+// Validador: Actualizar estado de solicitud
+const formData = new FormData();
+formData.append('action', 'update');
+formData.append('id', '1');
+formData.append('estado', 'validado');
+formData.append('motivo', 'Cumple con todos los requisitos');
+fetch('api/solicitudes.php', { method: 'POST', body: formData })

@@ -1,0 +1,79 @@
+docker/apache/000-default.conf
+docker/Docker/Dockerfile
+
+# Sistema de sincronización de BD
+## Archivos temporales de base de datos
+/database/*.sql.bak
+/database/*.sql.tmp
+
+## Logs de exportación
+*.log
+
+## Variables de entorno (NO subir credenciales)
+.env
+.env.local
+.env.*.local
+
+## Node modules y dependencias
+node_modules/
+vendor/
+composer.lock
+
+## Cache
+.DS_Store
+.cache/
+*.tmp
+*~
+
+## IDE
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+## PHP
+.php-cs-fixer.cache
+
+## Docker
+docker/data/*
+!docker/data/.gitkeep
+
+## Uploads
+public/static/uploads/*
+!public/static/uploads/.gitkeep
+public/uploads/
+!public/uploads/.gitkeep
+
+## Sessions
+/sessions/*
+!sessions/.gitkeep
+
+## Temporal
+/tmp/*
+!tmp/.gitkeep
+
+# =============================================================================
+# ARCHIVOS DE TESTING Y DESARROLLO (mantener estructura pero ignorar outputs)
+# =============================================================================
+
+## Outputs de testing manual
+testing/manual/*.log
+testing/manual/output/
+testing/manual/results/
+
+## Outputs de verificaciones
+utils/checks/*.log
+utils/checks/output/
+utils/debug/*.log
+utils/debug/output/
+utils/fixes/*.log
+utils/fixes/output/
+
+## Archivos temporales de utils
+utils/**/*.tmp
+utils/**/*.bak
+
+## PHPUnit reports
+/tests/coverage/
+/tests/reports/
+.phpunit.result.cache

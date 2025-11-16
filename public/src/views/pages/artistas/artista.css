@@ -1,0 +1,190 @@
+/* Contenedor general */
+.contenedor-artista {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabecera del perfil */
+.artista-full .cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--color-secundario);
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.foto-perfil {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 8px rgba(0,0,0,0.15);
+}
+
+.datos {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.datos h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  color: var(--color-primario);
+}
+
+.datos p {
+  margin: 0.25rem 0;
+  font-size: 1rem;
+}
+
+.bio {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Botón de acceso */
+.boton-acceso {
+  margin-top: 1rem;
+  background-color: var(--color-arte-1);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: fit-content;
+}
+
+.boton-acceso:hover {
+  background-color: #559e9e;
+}
+
+/* Sección de galería */
+.galeria {
+  margin-top: 2rem;
+}
+
+.galeria h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.6rem;
+  color: var(--color-primario);
+}
+
+/* Galería de imágenes adaptables */
+.imagenes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.imagen-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.imagen-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  display: block;
+  cursor: pointer;
+}
+
+.imagen-wrapper img:hover {
+  transform: scale(1.02);
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.lightbox .cerrar {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 1001;
+}
+
+.oculto {
+  display: none;
+}
+
+/* Footer */
+footer {
+  background-color: #265e70;
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+  margin-top: 3rem;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content h2 {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #ffffff;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+  color: var(--color-acento);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .artista-full .cabecera {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .foto-perfil {
+    margin-right: 0;
+  }
+
+  .boton-acceso {
+    margin: 1rem auto 0;
+  }
+}

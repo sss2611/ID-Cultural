@@ -1,0 +1,1745 @@
+/* =============================================================================
+   WIKI CSS - DISEÑO PROFESIONAL CON SIDEBAR
+   ========================================================================== */
+
+/* Variables de color */
+:root {
+    --primary-cyan: #00BFFF;
+    --primary-pink: #FF1493;
+    --primary-gold: #FFD700;
+    --dark-bg: #1a1a1a;
+    --light-text: #f8f9fa;
+    --gray-light: #f8f9fa;
+    --gray-medium: #6c757d;
+    --gray-dark: #343a40;
+    --white: #ffffff;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+    --shadow-heavy: rgba(0, 0, 0, 0.3);
+    --gradient-primary: linear-gradient(135deg, var(--primary-cyan), var(--primary-pink));
+    --gradient-secondary: linear-gradient(135deg, var(--primary-gold), var(--primary-cyan));
+}
+
+/* Patrón de fondo */
+.wiki-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/static/img/pattern.png');
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    opacity: 0.05;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Header de la Wiki */
+.wiki-header {
+    padding: 3rem 0;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    text-shadow: 0 4px 12px rgba(0, 191, 255, 0.3);
+}
+
+.stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px var(--shadow-light);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-width: 150px;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px var(--shadow-medium);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--gray-medium);
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* Búsqueda Mejorada */
+.search-hero {
+    margin-bottom: 3rem;
+}
+
+.search-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.search-input-group {
+    display: flex;
+    background: var(--white);
+    border-radius: 50px;
+    padding: 8px;
+    box-shadow: 0 10px 30px var(--shadow-medium);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.search-input-group:focus-within {
+    border-color: var(--primary-cyan);
+    box-shadow: 0 15px 40px rgba(0, 191, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 40px;
+    outline: none;
+    background: transparent;
+}
+
+.search-select {
+    border: none;
+    padding: 1rem;
+    background: transparent;
+    outline: none;
+    color: var(--gray-medium);
+    min-width: 180px;
+}
+
+.search-btn {
+    background: var(--gradient-primary);
+    color: var(--white);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 40px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 191, 255, 0.3);
+}
+
+.clear-btn {
+    background: #6c757d;
+    color: var(--white);
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 40px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.clear-btn:hover {
+    background: #5a6268;
+    transform: scale(1.05);
+}
+
+/* Sidebar */
+.wiki-sidebar {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.sidebar-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 25px var(--shadow-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.sidebar-card:hover {
+    box-shadow: 0 15px 35px var(--shadow-medium);
+    transform: translateY(-2px);
+}
+
+.sidebar-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--gray-dark);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sidebar-title i {
+    color: var(--primary-cyan);
+    font-size: 1.3rem;
+}
+
+/* Artista Destacado */
+.featured-artist {
+    background: var(--gradient-primary);
+    color: var(--white);
+}
+
+.featured-artist .sidebar-title {
+    color: var(--white);
+}
+
+.featured-image {
+    width: 100%;
+    height: 120px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.featured-info h5 {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.featured-category {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.featured-description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.btn-featured {
+    background: var(--white);
+    color: var(--primary-cyan);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-featured:hover {
+    background: var(--gray-light);
+    transform: scale(1.05);
+}
+
+/* Categorías */
+.category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--gray-dark);
+    transition: all 0.3s ease;
+    background: rgba(0, 191, 255, 0.05);
+    border: 1px solid transparent;
+}
+
+.category-item:hover {
+    background: var(--gradient-primary);
+    color: var(--white);
+    transform: translateX(5px);
+    border-color: var(--primary-cyan);
+}
+
+.category-item i {
+    font-size: 1.2rem;
+    color: var(--primary-cyan);
+    transition: all 0.3s ease;
+}
+
+.category-item:hover i {
+    color: var(--white);
+}
+
+.category-item span:first-of-type {
+    flex: 1;
+    font-weight: 500;
+}
+
+.category-count {
+    background: var(--primary-gold);
+    color: var(--white);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    min-width: 25px;
+    text-align: center;
+}
+
+.category-close-icon {
+    font-size: 1rem;
+    color: var(--gray-medium);
+    opacity: 0;
+    transition: all 0.3s ease;
+    margin-left: 0.5rem;
+}
+
+.category-item.active .category-close-icon {
+    opacity: 1;
+    color: var(--white);
+}
+
+.category-item:hover .category-close-icon {
+    opacity: 0.7;
+    color: var(--white);
+}
+
+.category-item.active {
+    background: var(--gradient-primary);
+    color: var(--white);
+    border-color: var(--primary-cyan);
+    transform: translateX(5px);
+}
+
+.category-item.active i:not(.category-close-icon) {
+    color: var(--white);
+}
+
+/* Filtros Rápidos */
+.filter-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 2px solid var(--primary-cyan);
+    color: var(--primary-cyan);
+    padding: 0.75rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--gradient-primary);
+    color: var(--white);
+    transform: scale(1.02);
+}
+
+/* Pestañas de Contenido */
+.content-tabs {
+    margin-bottom: 2rem;
+}
+
+.tab-navigation {
+    display: flex;
+    background: var(--white);
+    border-radius: 15px;
+    padding: 0.5rem;
+    box-shadow: 0 8px 25px var(--shadow-light);
+    gap: 0.5rem;
+    overflow-x: auto;
+}
+
+.tab-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: var(--gray-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-width: fit-content;
+}
+
+.tab-btn:hover {
+    background: rgba(0, 191, 255, 0.1);
+    color: var(--primary-cyan);
+}
+
+.tab-btn.active {
+    background: var(--gradient-primary);
+    color: var(--white);
+    box-shadow: 0 5px 15px rgba(0, 191, 255, 0.3);
+}
+
+.tab-btn i {
+    font-size: 1.1rem;
+}
+
+.filter-indicator {
+    margin-left: 0.5rem;
+    background: var(--primary-gold);
+    color: var(--white);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(0.95);
+    }
+}
+
+/* Contenido de las Pestañas */
+.tab-content {
+    min-height: 600px;
+}
+
+.tab-pane {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.content-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.content-header h3 {
+    font-weight: 700;
+    color: var(--gray-dark);
+    margin-bottom: 0.5rem;
+}
+
+.content-header p {
+    color: var(--gray-medium);
+    font-size: 1.1rem;
+}
+
+/* Grids de Contenido - CORREGIDO */
+.artists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Cards Profesionales de Artistas - CORREGIDO */
+.artist-card-professional {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px var(--shadow-light);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.artist-card-professional:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px var(--shadow-medium);
+}
+
+.artist-image-container {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.artist-profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+}
+
+.artist-card-professional:hover .artist-profile-image {
+    transform: scale(1.1);
+}
+
+.category-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+    padding: 2.5rem 1.5rem 1rem;
+    text-align: center;
+}
+
+.category-badge {
+    background: var(--gradient-primary);
+    color: var(--white);
+    padding: 0.5rem 1.25rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.artist-content {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.artist-header {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding-bottom: 1.25rem;
+    border-bottom: 2px solid var(--gray-light);
+}
+
+.artist-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--gray-dark);
+    margin: 0;
+    line-height: 1.3;
+    word-wrap: break-word;
+}
+
+.artist-details {
+    flex: 1;
+    margin-bottom: 1rem;
+}
+
+.detail-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 1.25rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.7rem 0.85rem;
+    background: rgba(0, 191, 255, 0.04);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.detail-item:hover {
+    background: rgba(0, 191, 255, 0.1);
+}
+
+.detail-item i {
+    color: var(--primary-cyan);
+    font-size: 1.15rem;
+    flex-shrink: 0;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: var(--gray-dark);
+    flex-shrink: 0;
+    font-size: 0.9rem;
+    min-width: 90px;
+}
+
+.detail-value {
+    color: var(--gray-medium);
+    font-size: 0.9rem;
+    word-break: break-word;
+    flex: 1;
+}
+
+.artist-bio {
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.08), rgba(255, 20, 147, 0.05));
+    padding: 1.25rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-cyan);
+    margin: 1.25rem 0;
+}
+
+.artist-bio p {
+    margin: 0;
+    font-style: italic;
+    color: var(--gray-dark);
+    line-height: 1.7;
+    font-size: 0.9rem;
+}
+
+.artist-bio i {
+    color: var(--primary-cyan);
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.artist-bio i {
+    color: var(--primary-cyan);
+    margin-right: 0.5rem;
+}
+
+.artist-social-links {
+    display: flex;
+    gap: 0.65rem;
+    margin: 1.25rem 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--white);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.social-link.instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.social-link.facebook {
+    background: #1877f2;
+}
+
+.social-link.twitter {
+    background: #1da1f2;
+}
+
+.social-link.website {
+    background: var(--gray-dark);
+}
+
+.social-link:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.artist-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding-top: 1.25rem;
+}
+
+.btn-view-profile {
+    background: var(--gradient-primary);
+    border: none;
+    color: var(--white);
+    padding: 0.85rem 1.25rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex: 1;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.btn-view-profile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 191, 255, 0.3);
+    color: var(--white);
+}
+
+.btn-contact {
+    border: 2px solid var(--primary-cyan);
+    color: var(--primary-cyan);
+    padding: 0.85rem 1.25rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--white);
+    font-size: 0.9rem;
+    flex: 1;
+    text-decoration: none;
+}
+
+.btn-contact:hover {
+    background: var(--primary-cyan);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 191, 255, 0.2);
+}
+
+/* Cards de Artistas Famosos */
+.famous-artists-grid .row {
+    margin: 0;
+}
+
+.famous-artist-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px var(--shadow-light);
+    transition: all 0.3s ease;
+    height: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.famous-artist-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px var(--shadow-medium);
+}
+
+.famous-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.famous-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.famous-artist-card:hover .famous-image img {
+    transform: scale(1.1);
+}
+
+.famous-overlay {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.famous-badge {
+    background: var(--gradient-secondary);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.famous-content {
+    padding: 1.5rem;
+}
+
+.famous-content h4 {
+    font-weight: 700;
+    color: var(--gray-dark);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.famous-category {
+    color: var(--primary-cyan);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.famous-bio {
+    color: var(--gray-medium);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.famous-achievements {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.achievement {
+    background: var(--gray-light);
+    color: var(--gray-dark);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid var(--gray-light);
+}
+
+/* Loading Placeholder */
+.loading-placeholder {
+    text-align: center;
+    padding: 3rem;
+    color: var(--gray-medium);
+}
+
+.loading-placeholder .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* =============================================================================
+   CARDS PROFESIONALES DE OBRAS
+   ========================================================================== */
+
+.work-card-professional {
+    background: var(--white);
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px var(--shadow-light);
+    transition: all 0.4s ease;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.work-card-professional:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px var(--shadow-medium);
+}
+
+/* Contenedor de imagen de obra */
+.work-image-container {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+    background: linear-gradient(45deg, var(--gray-light), #e9ecef);
+}
+
+.work-main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.4s ease;
+}
+
+.work-card-professional:hover .work-main-image {
+    transform: scale(1.08);
+}
+
+.work-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, transparent 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.work-category-badge {
+    background: var(--gradient-primary);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    backdrop-filter: blur(10px);
+}
+
+.status-badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    backdrop-filter: blur(10px);
+}
+
+.status-validated {
+    background: rgba(40, 167, 69, 0.9);
+    color: var(--white);
+}
+
+.status-pending {
+    background: rgba(255, 193, 7, 0.9);
+    color: var(--dark-bg);
+}
+
+.work-hover-actions {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.work-card-professional:hover .work-hover-actions {
+    opacity: 1;
+}
+
+.work-action-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.work-action-btn:hover {
+    background: var(--primary-cyan) !important;
+    color: var(--white) !important;
+    transform: scale(1.1);
+}
+
+/* Contenido de la card */
+.work-content {
+    padding: 2rem;
+}
+
+.work-header {
+    margin-bottom: 1.5rem;
+}
+
+.work-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--dark-bg);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+}
+
+.work-artist-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gray-medium);
+    font-size: 0.95rem;
+}
+
+.artist-name {
+    font-weight: 600;
+    color: var(--primary-cyan);
+}
+
+.work-description {
+    margin-bottom: 1.5rem;
+}
+
+.work-description p {
+    color: var(--gray-dark);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.work-metadata {
+    margin-bottom: 1.5rem;
+    background: var(--gray-light);
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+.metadata-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.metadata-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.metadata-item i {
+    color: var(--primary-cyan);
+    font-size: 1rem;
+}
+
+.metadata-label {
+    font-weight: 600;
+    color: var(--gray-medium);
+    font-size: 0.85rem;
+}
+
+.metadata-value {
+    color: var(--gray-dark);
+    font-size: 0.9rem;
+}
+
+.work-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.btn-view-work {
+    flex: 1;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    background: var(--gradient-primary);
+    border: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-view-work:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 191, 255, 0.3);
+}
+
+.work-secondary-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.work-secondary-actions .btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.work-secondary-actions .btn:hover {
+    transform: scale(1.1);
+}
+
+/* =============================================================================
+   MODAL PROFESIONAL DE OBRAS
+   ========================================================================== */
+
+.work-modal {
+    border-radius: 20px !important;
+    overflow: hidden;
+}
+
+.work-detail-modal {
+    text-align: left;
+}
+
+.modal-work-header {
+    position: relative;
+    margin-bottom: 0;
+}
+
+.work-main-image-container {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    background: var(--gray-light);
+}
+
+.work-modal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.work-modal-image:hover {
+    transform: scale(1.05);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.work-main-image-container:hover .image-overlay {
+    opacity: 1;
+}
+
+.expand-image-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.modal-work-content {
+    padding: 2rem;
+}
+
+.work-title-section {
+    margin-bottom: 1.5rem;
+}
+
+.modal-work-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark-bg);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.work-status-badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.artist-info-card {
+    background: var(--gray-light);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.artist-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.artist-details h5 {
+    margin: 0 0 0.5rem 0;
+    color: var(--dark-bg);
+    font-weight: 600;
+}
+
+.artist-location {
+    margin: 0 0 1rem 0;
+    color: var(--gray-medium);
+    font-size: 0.9rem;
+}
+
+.contact-artist-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.work-description-section {
+    margin-bottom: 2rem;
+}
+
+.work-description-section h6 {
+    color: var(--dark-bg);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.work-description-full {
+    color: var(--gray-dark);
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.work-metadata-section {
+    margin-bottom: 2rem;
+}
+
+.metadata-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.metadata-card {
+    background: var(--white);
+    border: 2px solid var(--gray-light);
+    border-radius: 15px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.metadata-card:hover {
+    border-color: var(--primary-cyan);
+    transform: translateY(-2px);
+}
+
+.metadata-card i {
+    font-size: 1.5rem;
+}
+
+.metadata-card .metadata-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--gray-medium);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.metadata-card .metadata-value {
+    display: block;
+    font-size: 1rem;
+    color: var(--dark-bg);
+    font-weight: 600;
+}
+
+.multimedia-gallery {
+    margin-bottom: 2rem;
+}
+
+.multimedia-gallery h6 {
+    color: var(--dark-bg);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.8rem;
+}
+
+.gallery-thumb {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+}
+
+.gallery-thumb:hover {
+    transform: scale(1.05);
+    border-color: var(--primary-cyan);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 1rem;
+    border-top: 2px solid var(--gray-light);
+}
+
+.modal-actions .btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.modal-actions .btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Estilos específicos para SweetAlert2 */
+.work-modal-close {
+    background: var(--gradient-primary) !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    top: 1rem !important;
+    right: 1rem !important;
+    z-index: 10 !important;
+}
+
+.image-viewer-popup {
+    background: rgba(0,0,0,0.95) !important;
+}
+
+/* Paginación */
+.pagination-container {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.pagination-custom {
+    display: inline-flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pagination-custom li {
+    display: inline-block;
+}
+
+.pagination-custom a,
+.pagination-custom span {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--gray-medium);
+    background: var(--white);
+    border: 1px solid var(--gray-light);
+    transition: all 0.3s ease;
+}
+
+.pagination-custom a:hover,
+.pagination-custom .active span {
+    background: var(--gradient-primary);
+    color: var(--white);
+    border-color: var(--primary-cyan);
+    transform: translateY(-2px);
+}
+
+/* Z-index para dropdowns del navbar */
+.dropdown-menu {
+    z-index: 1100 !important;
+    position: absolute !important;
+}
+
+header .dropdown-menu,
+.navbar .dropdown-menu {
+    z-index: 1100 !important;
+    position: absolute !important;
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+    .stats-row {
+        gap: 1.5rem;
+    }
+    
+    .stat-item {
+        min-width: 120px;
+        padding: 1rem;
+    }
+    
+    .search-input-group {
+        flex-direction: column;
+        border-radius: 20px;
+        gap: 0.5rem;
+    }
+    
+    .search-btn {
+        border-radius: 15px;
+        justify-content: center;
+    }
+    
+    .wiki-sidebar {
+        position: static;
+        margin-bottom: 2rem;
+    }
+    
+    .tab-navigation {
+        flex-wrap: wrap;
+    }
+    
+    .tab-btn {
+        flex: none;
+        min-width: calc(50% - 0.25rem);
+    }
+    
+    .artists-grid {
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .wiki-header {
+        padding: 2rem 0;
+    }
+    
+    .text-gradient {
+        font-size: 2rem;
+    }
+    
+    .stats-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .search-input-group {
+        padding: 0.5rem;
+    }
+    
+    .search-input,
+    .search-select {
+        padding: 0.75rem 1rem;
+    }
+    
+    .artists-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 0.5rem;
+    }
+    
+    .works-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Cards de obras responsivas */
+    .work-image-container {
+        height: 240px;
+    }
+    
+    .work-content {
+        padding: 1.5rem;
+    }
+    
+    .work-title {
+        font-size: 1.2rem;
+    }
+    
+    .work-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .work-secondary-actions {
+        justify-content: center;
+    }
+    
+    /* Modal responsivo */
+    .modal-work-content {
+        padding: 1.5rem;
+    }
+    
+    .modal-work-title {
+        font-size: 1.5rem;
+    }
+    
+    .artist-info-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .metadata-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+    }
+    
+    .famous-image {
+        height: 150px;
+    }
+    
+    .tab-btn {
+        min-width: 100%;
+        margin-bottom: 0.25rem;
+        padding: 0.85rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .artist-card-professional {
+        margin-bottom: 1.5rem;
+    }
+    
+    .artist-image-container {
+        height: 240px;
+    }
+    
+    .artist-content {
+        padding: 1.5rem;
+    }
+    
+    .artist-header {
+        margin-bottom: 1.25rem;
+        padding-bottom: 1rem;
+    }
+    
+    .artist-name {
+        font-size: 1.5rem;
+    }
+    
+    .detail-row {
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
+    
+    .detail-item {
+        padding: 0.65rem 0.75rem;
+    }
+    
+    .detail-label {
+        font-size: 0.85rem;
+        min-width: 85px;
+    }
+    
+    .detail-value {
+        font-size: 0.85rem;
+    }
+    
+    .artist-bio {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+    
+    .artist-bio p {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+    
+    .social-link {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+    
+    .artist-actions {
+        gap: 0.65rem;
+        padding-top: 1rem;
+    }
+    
+    .btn-view-profile,
+    .btn-contact {
+        font-size: 0.85rem;
+        padding: 0.75rem 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container-fluid {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .artists-grid {
+        padding: 0;
+    }
+    
+    .artist-card-professional {
+        margin-bottom: 1.25rem;
+    }
+    
+    .artist-image-container {
+        height: 220px;
+    }
+    
+    .artist-content {
+        padding: 1.25rem;
+    }
+    
+    .artist-name {
+        font-size: 1.35rem;
+    }
+    
+    .detail-item {
+        padding: 0.6rem;
+        gap: 0.65rem;
+    }
+    
+    .detail-item i {
+        font-size: 1rem;
+    }
+    
+    .detail-label {
+        font-size: 0.8rem;
+        min-width: 75px;
+    }
+    
+    .detail-value {
+        font-size: 0.8rem;
+    }
+    
+    .artist-bio {
+        padding: 0.9rem;
+    }
+    
+    .artist-bio p {
+        font-size: 0.8rem;
+    }
+    
+    .artist-social-links {
+        gap: 0.5rem;
+        margin: 1rem 0;
+    }
+    
+    .social-link {
+        width: 34px;
+        height: 34px;
+        font-size: 0.95rem;
+    }
+    
+    .artist-actions {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+    
+    .btn-view-profile,
+    .btn-contact {
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 0.85rem;
+    }
+    
+    /* Cards de obras en móviles */
+    .work-image-container {
+        height: 200px;
+    }
+    
+    .work-content {
+        padding: 1.25rem;
+    }
+    
+    .work-title {
+        font-size: 1.1rem;
+    }
+    
+    .work-artist-info {
+        font-size: 0.85rem;
+    }
+    
+    .work-description p {
+        font-size: 0.85rem;
+    }
+    
+    .work-metadata {
+        padding: 0.8rem;
+    }
+    
+    .metadata-item {
+        gap: 0.4rem;
+    }
+    
+    .metadata-label {
+        font-size: 0.75rem;
+    }
+    
+    .metadata-value {
+        font-size: 0.8rem;
+    }
+    
+    .btn-view-work {
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .work-secondary-actions .btn {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Mejoras de Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

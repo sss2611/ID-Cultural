@@ -1,0 +1,457 @@
+/* ===================================
+   INDEX.CSS - ID CULTURAL
+   Estilos para la página de inicio
+=================================== */
+
+/* Hero Section con Carrusel Mejorado */
+.hero-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-image {
+  height: 320px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+.carousel-caption-custom {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 10;
+  color: white;
+  text-align: center;
+}
+
+.carousel-caption-custom h1 {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.carousel-caption-custom p {
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  font-size: 1.25rem;
+}
+
+.carousel-caption-custom .btn {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.carousel-caption-custom .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Controles del carrusel más visibles */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 3rem;
+  height: 3rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Indicadores del carrusel mejorados */
+.carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 5px;
+  border: 2px solid white;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.carousel-indicators .active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Sección de Bienvenida */
+.welcome-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+/* Estilos para contenido HTML de Quill */
+.welcome-section h2,
+.welcome-section .display-4 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.welcome-section .display-4 p {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+.welcome-section .display-4 p:first-child {
+  margin-top: 0;
+}
+
+.welcome-section .lead p {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.welcome-section .lead p:last-child {
+  margin-bottom: 0;
+}
+
+.welcome-section .lead strong {
+  color: #00BFFF;
+  font-weight: 700;
+}
+
+.welcome-section .lead em {
+  color: #0099CC;
+}
+
+.welcome-section h5 p {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+.huella-idcultural {
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Sección de Estadísticas */
+.stats-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.stat-card {
+  padding: 2rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.stat-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+/* Sección de Noticias */
+.noticias-section {
+  background: white;
+}
+
+.noticia-card {
+  height: 100%;
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.noticia-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.noticia-card img {
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.noticia-card:hover img {
+  transform: scale(1.05);
+}
+
+.noticia-card .card-body {
+  padding: 1.5rem;
+}
+
+.noticia-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.75rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.noticia-excerpt {
+  color: #6c757d;
+  font-size: 0.95rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+
+.noticia-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.noticia-fecha {
+  display: flex;
+  align-items: center;
+}
+
+.noticia-fecha i {
+  margin-right: 0.5rem;
+}
+
+.noticia-leer-mas {
+  color: #0d6efd;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.noticia-leer-mas:hover {
+  color: #0a58ca;
+  text-decoration: underline;
+}
+
+/* Call to Action Section */
+.cta-section {
+  background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.3;
+}
+
+.cta-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-section .btn-light {
+  background: white;
+  color: #0d6efd;
+  border: none;
+  font-weight: 600;
+}
+
+.cta-section .btn-light:hover {
+  background: #f8f9fa;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-section .btn-outline-light:hover {
+  background: white;
+  color: #0d6efd;
+  transform: translateY(-3px);
+}
+
+/* Modal de Noticia */
+.modal-noticia .modal-content {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.modal-noticia .modal-header {
+  background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+  color: white;
+  border-bottom: none;
+  padding: 2rem;
+}
+
+.modal-noticia .modal-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.modal-noticia .modal-body {
+  padding: 2rem;
+}
+
+.modal-noticia-imagen {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.modal-noticia-contenido {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.modal-noticia-footer {
+  background: #f8f9fa;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid #dee2e6;
+}
+
+/* Animaciones AOS personalizadas */
+[data-aos="fade-up"] {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+[data-aos="fade-up"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-image {
+    height: 400px;
+  }
+
+  .carousel-caption-custom h1 {
+    font-size: 2rem;
+  }
+
+  .carousel-caption-custom p {
+    font-size: 1rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .stat-icon {
+    font-size: 2.5rem;
+  }
+
+  .noticia-card img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-image {
+    height: 350px;
+  }
+
+  .carousel-caption-custom h1 {
+    font-size: 1.5rem;
+  }
+
+  .carousel-caption-custom .btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .cta-section .btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Mejoras de accesibilidad */
+.btn:focus,
+.noticia-card:focus {
+  outline: 3px solid #0d6efd;
+  outline-offset: 2px;
+}
+
+/* Loading skeleton para noticias */
+.noticia-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Transición suave para el carrusel */
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.carousel-fade .carousel-item.active {
+  opacity: 1;
+}

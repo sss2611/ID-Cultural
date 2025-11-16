@@ -1,0 +1,17 @@
+/*
+  Estilos específicos para la página de gestión de personal.
+  Bootstrap y dashboard.css se encargan del resto.
+*/
+
+/* Ajuste para que el botón del acordeón se vea más como un botón de acción */
+.accordion-button:not(.collapsed) {
+  color: var(--bs-primary-text-emphasis);
+  background-color: var(--bs-primary-bg-subtle);
+}
+
+/* Estilo para las insignias (badges) de los roles para que tengan un tamaño consistente */
+.badge {
+  font-size: 0.85rem;
+  padding: 0.5em 0.75em;
+}
+

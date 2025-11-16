@@ -1,0 +1,48 @@
+
+
+services:
+  web:
+    build:
+      context: . # El contexto es la raíz de tu proyecto ID-CULTURAL/
+      dockerfile: ./docker/web/Dockerfile # Ruta a tu nuevo Dockerfile
+    container_name: idcultural_web
+    volumes:
+      # Opción 1 (ruta absoluta): Esto sigue siendo válido y funciona.
+      # - /home/runatechdev/Documentos/Github/ID-Cultural/:/var/www/app
+      
+      # Opción 2 (ruta relativa, más limpia y portable si el compose.yml está en la raíz del proyecto):
+      - .:/var/www/app  # Este '.' ahora se refiere a /home/runatechdev/Documentos/Github/ID-Cultural/
+
+      # Esta ruta ya es correcta con el compose.yml en la raíz de ID-Cultural
+      - ./docker/apache/000-default.conf:/etc/apache2/sites-available/000-default.conf
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:10.5
+    container_name: idcultural_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: idcultural
+      MYSQL_USER: runatechdev
+      MYSQL_PASSWORD: 1234
+    volumes:
+      - db_data:/var/lib/mysql
+      # Inicializar BD con el SQL exportado si existe
+      - ./database/idcultural_export.sql:/docker-entrypoint-initdb.d/idcultural_export.sql:ro
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: idcultural_pma
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root
+
+volumes:
+  db_data:

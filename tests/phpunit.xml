@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
+         bootstrap="bootstrap.php"
+         colors="true"
+         verbose="true"
+         stopOnFailure="false"
+         stopOnDefect="false"
+         stopOnError="false"
+         stopOnIncomplete="false"
+         stopOnRisky="false"
+         failOnRisky="false"
+         failOnWarning="false">
+    <testsuites>
+        <testsuite name="ID Cultural - Backend Tests">
+            <file>Unit/AuthTest.php</file>
+            <file>Unit/ArtistasTest.php</file>
+            <file>Unit/BorradoresTest.php</file>
+            <file>Unit/ValidacionTest.php</file>
+            <file>Unit/ErrorHandlerTest.php</file>
+            <file>Integration/APIsTest.php</file>
+        </testsuite>
+    </testsuites>
+
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">../public/api</directory>
+            <directory suffix=".php">../backend</directory>
+        </include>
+        <exclude>
+            <directory suffix="Test.php">../tests</directory>
+        </exclude>
+        <report>
+            <html outputDirectory="coverage"/>
+            <text outputFile="php://stdout" showUncoveredFiles="false"/>
+        </report>
+    </coverage>
+</phpunit>

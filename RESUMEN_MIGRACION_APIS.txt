@@ -1,0 +1,95 @@
+📊 RESUMEN DE LA MIGRACIÓN - APIS ID-CULTURAL
+==============================================
+
+📅 Fecha: 4 de Noviembre de 2025
+🎯 Objetivo: Consolidar APIs en CRUDs unificados y eliminar redundancias
+
+✅ TRABAJO REALIZADO:
+===================
+
+1️⃣ CRUDS UNIFICADOS IMPLEMENTADOS (6 archivos)
+   ✓ artistas.php          - Gestión de artistas (registro, validación, estadísticas)
+   ✓ personal.php          - Gestión de staff (admin, editor, validador)
+   ✓ borradores.php        - Gestión de borradores/publicaciones del artista
+   ✓ solicitudes.php       - Gestión de solicitudes de validación
+   ✓ noticias.php          - Gestión de noticias (crear, editar, eliminar)
+   ✓ site_content.php      - Gestión de contenido del sitio
+
+2️⃣ APIS ELIMINADAS (20+ archivos)
+   ✓ add_personal.php, delete_personal.php, update_personal.php, get_personal.php
+   ✓ add_noticia.php, edit_noticia.php, delete_noticia.php, get_noticias.php, get_noticia_detalle.php
+   ✓ delete_artista.php, update_artista_status.php, get_artistas.php, get_artist_stats.php
+   ✓ get_mis_borradores.php, get_mis_solicitudes.php, save_borrador.php, delete_publicacion.php
+   ✓ get_solicitudes.php, update_solicitud.php, register_artista.php, update_noticia.php
+   ✓ get_site_content.php, update_site_content.php
+
+3️⃣ BUGS CORREGIDOS (4 APIs)
+   ✓ get_publicaciones.php        - Tabla 'usuarios' → 'artistas'
+   ✓ get_publicacion_detalle.php  - Tablas 'usuarios' → 'artistas' + 'users'
+   ✓ validar_publicacion.php      - Tabla 'usuarios' → 'artistas', campos inválidos
+   ✓ solicitudes.php              - Estados, campos inexistentes, tablas
+
+4️⃣ APIS MANTIDAS Y FUNCIONALES (7 archivos)
+   ✓ login.php
+   ✓ get_estadisticas_inicio.php
+   ✓ get_estadisticas_validador.php
+   ✓ get_logs.php
+   ✓ get_publicaciones.php        (CORREGIDA)
+   ✓ get_publicacion_detalle.php  (CORREGIDA)
+   ✓ validar_publicacion.php      (CORREGIDA)
+
+📈 ESTADÍSTICAS:
+================
+✓ Archivos en /api/: 14 endpoints activos + 1 documentación
+✓ Reducción: De ~35 archivos a 13 (63% menos de código redundante)
+✓ Bugs corregidos: 4
+✓ Nuevas funcionalidades: CRUDs consolidados con mejor estructura
+
+📋 ESTRUCTURA FINAL DE /api/:
+=============================
+
+CRUDs Unificados (6):
+├── artistas.php         (registro, lectura, actualización, eliminación, estadísticas)
+├── personal.php         (CRUD completo de staff)
+├── borradores.php       (CRUD de publicaciones del artista)
+├── solicitudes.php      (lectura y validación de solicitudes)
+├── noticias.php         (CRUD de noticias)
+└── site_content.php     (lectura y actualización de contenido)
+
+Endpoints de Utilidad (7):
+├── login.php
+├── get_estadisticas_inicio.php
+├── get_estadisticas_validador.php
+├── get_logs.php
+├── get_publicaciones.php
+├── get_publicacion_detalle.php
+└── validar_publicacion.php
+
+Documentación (1):
+└── API_DOCUMENTATION.md  (Guía completa de uso)
+
+Referencia (1 carpeta):
+└── unificado/           (Archivos originales, puede eliminarse)
+
+🚀 PRÓXIMOS PASOS:
+==================
+1. ✅ Actualizar archivos JavaScript en /static/js/ con nuevas rutas
+2. ✅ Probar flujos completos de:
+   - Registro de artista
+   - Creación de borradores
+   - Validación de obras
+   - Gestión de personal
+   - Creación de noticias
+3. ⏳ Implementar seguridad mejorada (después de validación)
+4. ⏳ Eliminar carpeta 'unificado/' cuando se confirme funcionalidad
+
+📚 DOCUMENTACIÓN:
+=================
+Ver: /public/api/API_DOCUMENTATION.md para:
+  - Referencia completa de cada CRUD
+  - Ejemplos de uso de cada action
+  - Matriz de permisos por rol
+  - Flujo de validación de obras
+  - Guía de migración de código JS
+
+✨ Estado: LISTO PARA PROBAR

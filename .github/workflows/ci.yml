@@ -1,0 +1,42 @@
+name: Integración Continua (CI)
+
+on:
+push:
+branches: [ "main", "develop" ]
+pull_request:
+branches: [ "main", "develop" ]
+workflow_dispatch: # Permite ejecutar el workflow manualmente
+
+jobs:
+build_and_test:
+runs-on: ubuntu-latest
+
+steps:
+- name: 📥 Clonar Repositorio
+  uses: actions/checkout@v4
+
+- name: 🏗️ Levantar la Aplicación y Servicios con Docker Compose
+  # Los flags --build y --wait son clave aquí.
+  # --wait espera que los contenedores estén 'healthy' o que salgan.
+  run: docker-compose up -d --build --wait
+
+- name: ⏳ Esperar un momento adicional para la inicialización de la BD (opcional)
+  # Darle unos segundos extra a MariaDB para que el script SQL se ejecute.
+  run: sleep 15
+
+# ----------------------------------------------------
+# PASO CLAVE: Ejecución de las Pruebas
+# ----------------------------------------------------
+- name: 🧪 Ejecutar Pruebas (asumiendo PHPUnit)
+  # SERVICIO: 'web' (confirmado en el docker-compose.yml)
+  # COMANDO: 'vendor/bin/phpunit' (si usas PHPUnit, cámbialo si usas otro)
+  run: docker-compose exec -T web vendor/bin/phpunit
+  
+  # Si usas Laravel, probablemente sería:
+  # run: docker-compose exec -T web php artisan test
+
+# ----------------------------------------------------
+  
+- name: 🛑 Limpiar y Detener Contenedores
+  if: always() # Importante: Se ejecuta incluso si el paso de pruebas falla.
+  run: docker-compose down

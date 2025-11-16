@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Noticias del Home</title>
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="/static/css/editor_noticias.css">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <main class="noticia-main">
+    <h1>Cargar noticia para el Home</h1>
+
+   <form id="form-noticia">
+  <input type="hidden" id="noticia-id" />
+
+  <label for="titulo">Título:</label>
+  <input type="text" id="titulo" required>
+
+  <label for="contenido">Contenido:</label>
+  <textarea id="contenido" rows="5" required></textarea>
+
+  <label for="imagen">Imagen (opcional):</label>
+  <input type="file" id="imagen" accept="image/*">
+
+  <button type="submit">Guardar Noticia</button>
+</form>
+
+
+    <div id="mensaje-confirmacion" hidden>
+      ✅ Noticia guardada correctamente.
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="/static/js/noticias_editor.js"></script>
+  <script src="/static/js/main.js"></script>
+</body>
+</html>

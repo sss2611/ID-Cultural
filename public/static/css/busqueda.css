@@ -1,0 +1,334 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Contenedor general */
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Títulos */
+.titulo-seccion {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.titulo-resultados {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #1e3a8a;
+    margin-bottom: 24px;
+}
+
+/* Botonera de categorías */
+.categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.btn-categoria {
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-categoria::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-categoria:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+}
+
+.btn-categoria:hover::before {
+    left: 100%;
+}
+
+.btn-categoria:active {
+    transform: translateY(0) scale(1);
+}
+
+/* Resultados por categoría */
+.resultados {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 2rem;
+}
+
+/* Tarjetas mejoradas */
+.card {
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    height: fit-content;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa, #8b5cf6);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 24px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #1e3a8a;
+    line-height: 1.3;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #6b7280;
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+.text-muted {
+    color: #9ca3af !important;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.text-muted i {
+    color: #3b82f6;
+    margin-right: 6px;
+    font-size: 0.9rem;
+}
+
+/* Botón dentro de la tarjeta mejorado */
+.btn-biografia {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    color: #fff;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.btn-biografia::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.btn-biografia:hover {
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-biografia:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-biografia:active {
+    transform: translateY(0);
+}
+
+/* Alertas mejoradas */
+.alert {
+    border-radius: 15px;
+    border: none;
+    padding: 2rem;
+    background: linear-gradient(135deg, #e0f2fe, #f0f9ff);
+    color: #1e40af;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+.alert i {
+    font-size: 2rem;
+    color: #3b82f6;
+    margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .titulo-seccion {
+        font-size: 2rem;
+    }
+    
+    .contenedor {
+        padding: 20px 16px;
+    }
+    
+    .categorias {
+        gap: 8px;
+    }
+    
+    .btn-categoria {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+    
+    .resultados {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .card-body {
+        padding: 20px;
+    }
+    
+    .card img {
+        height: 180px;
+    }
+}
+
+/* Estilos para paginación */
+.pagination-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 8px;
+    align-items: center;
+}
+
+.page-item {
+    display: inline-block;
+}
+
+.page-link {
+    display: block;
+    padding: 12px 16px;
+    color: #3b82f6;
+    text-decoration: none;
+    background: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    min-width: 48px;
+    text-align: center;
+}
+
+.page-link:hover {
+    background: #3b82f6;
+    color: #ffffff;
+    border-color: #3b82f6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.page-item.active .page-link {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    color: #ffffff;
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.page-item.disabled .page-link {
+    color: #9ca3af;
+    background: #f9fafb;
+    border-color: #e5e7eb;
+    cursor: not-allowed;
+}
+
+.page-item.disabled .page-link:hover {
+    transform: none;
+    background: #f9fafb;
+    color: #9ca3af;
+    box-shadow: none;
+}

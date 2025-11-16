@@ -1,0 +1,14 @@
+/*
+  Estilos específicos para la página de validación de solicitudes.
+*/
+
+/*
+  Contenedor principal que envuelve el panel
+  para darle un fondo gris claro y separarlo del fondo general.
+*/
+.dashboard-wrapper {
+  background-color: #f8f9fa; /* Color gris claro de Bootstrap */
+  flex-grow: 1; /* Ocupa todo el espacio vertical disponible */
+  display: flex;
+  flex-direction: column;
+}

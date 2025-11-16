@@ -1,0 +1,37 @@
+// Obtener todos los artistas
+fetch('api/artistas.php?action=get')
+
+// Obtener artistas pendientes
+fetch('api/artistas.php?action=get&status=pendiente')
+
+// Obtener artista específico
+fetch('api/artistas.php?action=get&id=1')
+
+// Registrar artista
+const formData = new FormData();
+formData.append('action', 'register');
+formData.append('nombre', 'Juan');
+formData.append('apellido', 'Pérez');
+// ... otros campos
+fetch('api/artistas.php', { method: 'POST', body: formData })
+
+// Actualizar estado
+formData.append('action', 'update_status');
+formData.append('id', '1');
+formData.append('status', 'validado');
+formData.append('motivo', 'Documentación completa');
+fetch('api/artistas.php', { method: 'POST', body: formData })
+
+// Eliminar artista
+formData.append('action', 'delete');
+formData.append('id', '1');
+fetch('api/artistas.php', { method: 'POST', body: formData })
+
+// Obtener estadísticas de artistas
+fetch('api/artistas.php?action=get_stats')
+  .then(response => response.json())
+  .then(stats => {
+      console.log('Pendientes:', stats.pendientes);
+      console.log('Validados:', stats.validados);
+      console.log('Rechazados:', stats.rechazados);
+  });

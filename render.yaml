@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: id-cultural-web
+    env: php
+    plan: free
+    buildCommand: ""   # No necesitás build si es PHP puro
+    startCommand: php -S 0.0.0.0:10000 -t public
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: id-cultural-db
+          property: connectionString
+
+databases:
+  - name: id-cultural-db
+    plan: free

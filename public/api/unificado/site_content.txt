@@ -1,0 +1,36 @@
+// Obtener todo el contenido del sitio
+fetch('api/site_content.php?action=get')
+
+// Obtener contenido específico
+fetch('api/site_content.php?action=get&key=welcome_title')
+
+// Obtener lista de llaves disponibles
+fetch('api/site_content.php?action=get_keys')
+
+// Actualizar contenido (texto)
+const formData = new FormData();
+formData.append('action', 'update');
+formData.append('welcome_title', 'Nuevo título de bienvenida');
+formData.append('welcome_paragraph', 'Nuevo párrafo...');
+fetch('api/site_content.php', { method: 'POST', body: formData })
+
+// Actualizar contenido con imágenes
+formData.append('action', 'update');
+formData.append('welcome_title', 'Nuevo título');
+formData.append('carousel_image_1', fileInput1.files[0]);
+formData.append('carousel_image_2', fileInput2.files[0]);
+fetch('api/site_content.php', { method: 'POST', body: formData })
+
+// Actualización masiva vía JSON
+const bulkData = {
+    action: 'update_bulk',
+    content_data: JSON.stringify({
+        welcome_title: 'Nuevo título',
+        welcome_paragraph: 'Nuevo contenido',
+        about_title: 'Sobre nosotros'
+    })
+};
+fetch('api/site_content.php', { 
+    method: 'POST', 
+    body: new URLSearchParams(bulkData)
+})

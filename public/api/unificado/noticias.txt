@@ -1,0 +1,23 @@
+// Obtener todas las noticias
+fetch('api/noticias.php?action=get')
+
+// Obtener noticia específica  
+fetch('api/noticias.php?action=get&id=1')
+
+// Agregar noticia
+const formData = new FormData();
+formData.append('action', 'add');
+formData.append('titulo', 'Mi noticia');
+formData.append('contenido', 'Contenido...');
+formData.append('imagen', fileInput.files[0]);
+fetch('api/noticias.php', { method: 'POST', body: formData })
+
+// Actualizar noticia
+formData.append('action', 'update');
+formData.append('id', '1');
+fetch('api/noticias.php', { method: 'POST', body: formData })
+
+// Eliminar noticia
+formData.append('action', 'delete');
+formData.append('id', '1');
+fetch('api/noticias.php', { method: 'POST', body: formData })

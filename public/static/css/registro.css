@@ -1,0 +1,28 @@
+/* Estilos para la sección de intereses */
+.interest-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.interest-container .form-check-label {
+    padding: 0.5rem 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.interest-container .form-check-input {
+    display: none; /* Ocultamos el checkbox original */
+}
+
+/* Estilo para cuando el interés está seleccionado */
+.interest-container .form-check-input:checked + .form-check-label {
+    background-color: var(--bs-primary);
+    color: white;
+    border-color: var(--bs-primary);
+}

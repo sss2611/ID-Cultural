@@ -1,0 +1,34 @@
+// Obtener todos los borradores
+fetch('api/borradores.php?action=get')
+
+// Obtener borrador específico
+fetch('api/borradores.php?action=get&id=1')
+
+// Crear nuevo borrador
+const formData = new FormData();
+formData.append('action', 'save');
+formData.append('titulo', 'Mi publicación');
+formData.append('descripcion', 'Descripción...');
+formData.append('categoria', 'pintura');
+formData.append('estado', 'borrador'); // o 'pendiente_validacion'
+// Campos extra
+formData.append('tecnica', 'Óleo');
+formData.append('dimensiones', '50x70cm');
+fetch('api/borradores.php', { method: 'POST', body: formData })
+
+// Actualizar borrador existente
+formData.append('id', '1');
+formData.append('action', 'save');
+fetch('api/borradores.php', { method: 'POST', body: formData })
+
+// Enviar borrador a validación (acción específica)
+const submitData = new FormData();
+submitData.append('action', 'submit');
+submitData.append('id', '1');
+fetch('api/borradores.php', { method: 'POST', body: submitData })
+
+// Eliminar borrador
+const deleteData = new FormData();
+deleteData.append('action', 'delete');
+deleteData.append('id', '1');
+fetch('api/borradores.php', { method: 'POST', body: deleteData })

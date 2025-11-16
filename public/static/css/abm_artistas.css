@@ -1,0 +1,135 @@
+/* 🎯 Títulos */
+h2, h3 {
+  color: rgb(36, 34, 34);
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+   text-align: center; 
+}
+
+/* 🧩 Formulario estructurado en grid */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+/* 📦 Grupo de campos */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 🌐 Campo que ocupa el ancho completo */
+.full-width {
+  grid-column: span 2;
+}
+
+/* ✏️ Estilos unificados para inputs y selects */
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 🎨 Botón principal */
+button {
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #0075c4;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #005999;
+}
+
+/* 📋 Tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th,
+table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+table th {
+  background-color: #f2f2f2;
+}
+
+/* 🔧 Acciones de edición y eliminación */
+.acciones a {
+  margin-right: 10px;
+  color: #0075c4;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.acciones a:hover {
+  text-decoration: underline;
+}
+
+/* 🔀 Agrupación horizontal (ej. input + botón) */
+.horizontal-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap; /* Adaptable en pantallas chicas */
+}
+
+/* 📏 Input se expande */
+.horizontal-group input[type="text"] {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* 🎯 Botón dentro de grupo horizontal */
+.horizontal-group button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: var(--color-primario, #0075c4);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.horizontal-group button:hover {
+  background-color: #2a5a69;
+}
+
+/* 🧱 Contenedor centrado y elegante */
+.form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Ajustamos también la sección general */
+.form-section {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
