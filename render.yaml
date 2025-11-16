@@ -1,9 +1,9 @@
 services:
   - type: web
-    name: id-cultural-web
-    env: php
+    name: idcultural-app
+    runtime: php   
     plan: free
-    buildCommand: ""   # No necesitás build si es PHP puro
+    buildCommand: ""   
     startCommand: php -S 0.0.0.0:10000 -t public
     envVars:
       - key: DATABASE_URL
