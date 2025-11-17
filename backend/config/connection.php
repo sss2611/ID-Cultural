@@ -16,17 +16,30 @@ function getConnection() {
         $pass = $url['pass'];
         $dbname = ltrim($url['path'], '/');
 
-        $pdoDsn = "$driver:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
+        // DSN según el driver
+        if ($driver === 'pgsql') {
+            // Postgres no acepta charset en el DSN
+            $pdoDsn = "pgsql:host=$host;port=$port;dbname=$dbname";
+        } else {
+            // MySQL sí acepta charset
+            $pdoDsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
+        }
 
         try {
             $pdo = new PDO($pdoDsn, $user, $pass);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            // Forzar UTF-8 en Postgres
+            if ($driver === 'pgsql') {
+                $pdo->exec("SET NAMES 'UTF8'");
+            }
+
             return $pdo;
         } catch (PDOException $e) {
             die("Error de conexión (Render): " . $e->getMessage());
         }
     } else {
-        // Local Docker
+        // Local Docker con MySQL
         $db_host = 'db';
         $db_user = 'runatechdev';
         $db_pass = '1234';
