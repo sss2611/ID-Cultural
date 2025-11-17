@@ -4,7 +4,7 @@ services:
     runtime: php
     plan: free
     buildCommand: ""   
-    startCommand: php -S 0.0.0.0:10000 -t .
+    startCommand: php -S 0.0.0.0:10000 -t public
     envVars:
       - key: DATABASE_URL
         fromDatabase:
