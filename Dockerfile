@@ -1,13 +1,16 @@
 FROM php:8.2-apache
 
-# Copiar public y también config.php
-COPY public/ /var/www/html/
-COPY config.php /var/www/config.php
-COPY backend/ /var/www/backend/
-COPY components/ /var/www/components/
+COPY . /var/www/html/
 
-RUN chown -R www-data:www-data /var/www/html /var/www/config.php /var/www/backend /var/www/components \
-    && chmod -R 755 /var/www/html /var/www/config.php /var/www/backend /var/www/components
+# Cambiar DocumentRoot a /var/www/html/public
+RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf \
+    && sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/apache2.conf
+
+# Permitir que .htaccess funcione
+RUN sed -i 's|AllowOverride None|AllowOverride All|g' /etc/apache2/apache2.conf
+
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html
 
 RUN a2enmod rewrite
 
